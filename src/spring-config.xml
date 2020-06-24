@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--构造方法创建bean对象-->
+
+    <!--默认的构造方法-->
+    <!-- <bean id="dog1" class="com.xz.test.Dog"/>-->
+
+    <!--指定构造器创建-->
+    <!--<bean id="dog2" class="com.xz.test.Dog">
+        <constructor-arg index="0" value="xiao"/>
+        <constructor-arg index="1" value="1"/>
+    </bean>-->
+
+
+    <!--工厂方法实例化 不能指定class属性，必须使用factory-bean指定工厂 factory-method属性指定实例话bean的方法-->
+    <!--方式1-->
+    <!--<bean id="dogFactory" class="com.xz.test.DogFactory"/>
+    <bean id="dog" factory-bean="dogFactory" factory-method="newInstance">
+        <constructor-arg index="0" value="小明"/>
+        <constructor-arg index="1" value="1"/>
+    </bean>-->
+
+    <!--静态工厂实例化-->
+    <bean id="dog" class="com.xz.test.DogStaticFactory" factory-method="newInstance">
+        <constructor-arg index="0" value="xiao"/>
+        <constructor-arg index="1" value="1"/>
+    </bean>
+</beans>
